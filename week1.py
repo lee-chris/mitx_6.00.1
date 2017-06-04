@@ -30,3 +30,40 @@ def problem2(s):
                 num_bob += 1
     
     print("Number of times bob occurs is:", num_bob)
+
+
+def problem3(s):
+    """For a given string, print the longest substring in alphabetical order.
+    
+    Example, aejka will return "aejk".
+    """
+    
+    best_start = 0
+    best_end = 0
+    curr_start = 0
+    curr_end = 0
+    
+    while curr_end < len(s):
+        
+        if s[curr_end] < s[curr_end-1]:
+            
+            if curr_end - 1 - curr_start > best_end - best_start:
+                best_end = curr_end
+                best_start = curr_start
+            
+            curr_start = curr_end
+        
+        curr_end = curr_end + 1
+    
+    if curr_end - curr_start > best_end - best_start:
+        best_end = curr_end
+        best_start = curr_start
+    
+    print("Longest substring in alphabetical order is:", s[best_start:best_end])
+
+
+def test_problem3():
+    
+    problem3("abc")
+    problem3("abcz")
+    problem3("abcza")
