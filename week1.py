@@ -16,4 +16,17 @@ def problem1(s):
             num_vowels += 1
     
     print("Number of vowels:", num_vowels)
+
+
+def problem2(s):
+    """For a given string, print the number of times that 'bob' occurs."""
     
+    num_bob = 0
+    
+    for i in range(len(s)):
+        
+        if s[i] == "b":
+            if s[i:i+3] == "bob":
+                num_bob += 1
+    
+    print("Number of times bob occurs is:", num_bob)
