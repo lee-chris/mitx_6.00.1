@@ -45,7 +45,7 @@ def problem3(s):
     
     while curr_end < len(s):
         
-        if s[curr_end] <= s[curr_end-1]:
+        if s[curr_end] < s[curr_end-1]:
             
             if curr_end - curr_start > best_end - best_start:
                 best_end = curr_end
@@ -65,6 +65,16 @@ def problem3(s):
 def test_problem3():
     
     problem3("abc")
+    print("expected: abc\n")
+    
     problem3("abcz")
+    print("expected: abcz\n")
+    
     problem3("abcza")
+    print("expected: abcz\n")
+    
     problem3("yczrrglyquxrvvmmaav")
+    print("expected: gly\n")
+    
+    problem3("lmjwcbzehoogsfmnymx")
+    print("expected: ehoo\n")
