@@ -45,9 +45,9 @@ def problem3(s):
     
     while curr_end < len(s):
         
-        if s[curr_end] < s[curr_end-1]:
+        if s[curr_end] <= s[curr_end-1]:
             
-            if curr_end - 1 - curr_start > best_end - best_start:
+            if curr_end - curr_start > best_end - best_start:
                 best_end = curr_end
                 best_start = curr_start
             
@@ -67,3 +67,4 @@ def test_problem3():
     problem3("abc")
     problem3("abcz")
     problem3("abcza")
+    problem3("yczrrglyquxrvvmmaav")
