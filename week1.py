@@ -12,6 +12,7 @@ def problem1(s):
     
     for c in s:
         
+        # increment count if vowel
         if c == "a" or c == "e" or c == "i" or c == "o" or c == "u":
             num_vowels += 1
     
@@ -25,6 +26,7 @@ def problem2(s):
     
     for i in range(len(s)):
         
+        # if the character is b, check to see if next 2 characters are ob
         if s[i] == "b":
             if s[i:i+3] == "bob":
                 num_bob += 1
@@ -38,15 +40,20 @@ def problem3(s):
     Example, aejka will return "aejk".
     """
     
+    # indexes for longest alphabetical substring
     best_start = 0
     best_end = 0
+    
+    # indexes for current alphabetical substring
     curr_start = 0
     curr_end = 0
     
     while curr_end < len(s):
         
+        # if the current substring is no long alphabetical
         if s[curr_end] < s[curr_end-1]:
             
+            # if current substring is longer than previously recorded best
             if curr_end - curr_start > best_end - best_start:
                 best_end = curr_end
                 best_start = curr_start
@@ -55,6 +62,7 @@ def problem3(s):
         
         curr_end = curr_end + 1
     
+    # double check if current substring is longer
     if curr_end - curr_start > best_end - best_start:
         best_end = curr_end
         best_start = curr_start
