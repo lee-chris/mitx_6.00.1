@@ -23,3 +23,39 @@ def number_guess():
         else:
             print("Sorry, I did not understand your input.")
 
+
+def gcdIter(a, b):
+    '''
+    a, b: positive integers
+    
+    returns: a positive integer, the greatest common divisor of a & b.
+    '''
+
+    test = None
+
+    if (a < b):
+        test = a
+    else:
+        test = b
+
+    while test > 0:
+        if a % test == 0 and b % test == 0:
+            return test
+        test -= 1
+
+
+def gcdRecur(a, b):
+    '''
+    a, b: positive integers
+    
+    returns: a positive integer, the greatest common divisor of a & b.
+    '''
+
+    if a == b:
+        return a
+
+    if a < b:
+        return gcdRecur(a, b - a)
+    else:
+        return gcdRecur(a - b, b)
+
