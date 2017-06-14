@@ -59,3 +59,28 @@ def gcdRecur(a, b):
     else:
         return gcdRecur(a - b, b)
 
+
+def isIn(char, aStr):
+    '''
+    char: a single character
+    aStr: an alphabetized string
+    
+    returns: True if char is in aStr; False otherwise
+    '''
+    
+    if len(aStr) == 0:
+        return False
+
+    midpoint = len(aStr) // 2
+    test = aStr[midpoint]
+    
+    if test == char:
+        return True
+    
+    if len(aStr) == 1:
+        return False
+    
+    if char < test:
+        return isIn(char, aStr[:midpoint])
+    else:
+        return isIn(char, aStr[midpoint:])
