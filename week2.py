@@ -86,7 +86,7 @@ def isIn(char, aStr):
         return isIn(char, aStr[midpoint:])
 
 
-balance = 42
+balance = 400
 annualInterestRate = 0.2
 monthlyPaymentRate = 0.04
 
@@ -105,8 +105,32 @@ def problem1():
     print ("Remaining balance: {0:.2f}".format(previous_balance))
 
 
-
-
+def problem2():
+    """Calculate lowest monthly payment to settle balance in 12 months."""
+    
+    monthly_interest_rate = annualInterestRate / 12.0
+    
+    def calculate_interest(monthly_rate):
+        
+        previous_balance = balance
+    
+        for i in range(0, 12):
+    
+            monthly_unpaid_balance = previous_balance - monthly_rate
+            previous_balance = monthly_unpaid_balance + (monthly_interest_rate * monthly_unpaid_balance)
+        
+        return previous_balance
+    
+    i = 10
+    while i < balance:
+        
+        value = calculate_interest(i)
+        
+        if value < 0.005:
+            print("Lowest Payment: {0}".format(i))
+            return
+        
+        i += 10
 
 
 
