@@ -86,7 +86,7 @@ def isIn(char, aStr):
         return isIn(char, aStr[midpoint:])
 
 
-balance = 400
+balance = 320000
 annualInterestRate = 0.2
 monthlyPaymentRate = 0.04
 
@@ -133,6 +133,47 @@ def problem2():
         i += 10
 
 
+def problem3():
+    """Bisection search to solve lowest monthly payment problem (see problem2)"""
+
+    monthly_interest_rate = annualInterestRate / 12.0
+    
+    def calculate_interest(monthly_rate):
+        
+        previous_balance = balance
+    
+        for i in range(0, 12):
+    
+            monthly_unpaid_balance = previous_balance - monthly_rate
+            previous_balance = monthly_unpaid_balance + (monthly_interest_rate * monthly_unpaid_balance)
+        
+        return previous_balance
+    
+    lower = balance / 12
+    upper = (balance * (1 + monthly_interest_rate) ** 12) / 12.0
+    
+    payment = (upper + lower) / 2.0
+    old_balance = balance
+    
+    while True:
+        
+        new_balance = calculate_interest(payment)
+        
+        if abs(new_balance - old_balance) < 0.005:
+            break
+        
+        if new_balance < 0:
+            upper = payment
+            payment = (upper + lower) / 2.0
+            #print("too high: {0}, {1}".format(lower, upper))
+        else:
+            lower = payment
+            payment = (upper + lower) / 2.0
+            #print("too low: {0}, {1}".format(lower, upper))
+        
+        old_balance = new_balance
+
+    print("Lowest payment: {0:.2f}".format(payment))
 
 
 
