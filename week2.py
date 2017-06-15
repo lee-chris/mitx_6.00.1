@@ -84,3 +84,53 @@ def isIn(char, aStr):
         return isIn(char, aStr[:midpoint])
     else:
         return isIn(char, aStr[midpoint:])
+
+
+balance = 42
+annualInterestRate = 0.2
+monthlyPaymentRate = 0.04
+
+def problem1():
+    """Calculate interest after 12 months."""
+
+    monthly_interest_rate = annualInterestRate / 12.0
+    previous_balance = balance
+    
+    for i in range(0, 12):
+    
+        min_monthly_payment = monthlyPaymentRate * previous_balance
+        monthly_unpaid_balance = previous_balance - min_monthly_payment
+        previous_balance = monthly_unpaid_balance + (monthly_interest_rate * monthly_unpaid_balance)
+    
+    print ("Remaining balance: {0:.2f}".format(previous_balance))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
