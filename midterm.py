@@ -102,4 +102,41 @@ def general_poly (L):
         return val
             
     return fn
+
+
+def is_list_permutation(L1, L2):
+    '''
+    L1 and L2: lists containing integers and strings
+    Returns False if L1 and L2 are not permutations of each other. 
+            If they are permutations of each other, returns a 
+            tuple of 3 items in this order: 
+            the element occurring most, how many times it occurs, and its type
+    '''
+    
+    for i in L1:
+        if not i in L2:
+            return False
+    
+    for i in L2:
+        if not i in L1:
+            return False
+    
+    dist = {}
+    for i in L1:
         
+        if not i in dist:
+            dist[i] = 1
+        else:
+            dist[i] += 1
+    
+    max_count = 0
+    max_key = None
+    
+    for key in dist:
+        
+        count = dist[key]
+        if count > max_count:
+            max_count = count
+            max_key = key
+
+    return (key, max_count, type(key))
