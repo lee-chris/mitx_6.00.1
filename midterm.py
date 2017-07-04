@@ -31,7 +31,7 @@ def print_without_vowels(s):
     vowels = "aeiou"
     
     for c in s:
-        if not c in vowels:
+        if not c.lower() in vowels:
             out += c
     
     print(out)
