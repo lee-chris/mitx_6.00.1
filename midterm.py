@@ -113,6 +113,18 @@ def is_list_permutation(L1, L2):
             the element occurring most, how many times it occurs, and its type
     '''
     
+    def get_distribution(L):
+        
+        dist = {}
+        for i in L:
+            
+            if not i in dist:
+                dist[i] = 1
+            else:
+                dist[i] += 1
+        
+        return dist
+        
     for i in L1:
         if not i in L2:
             return False
@@ -121,13 +133,7 @@ def is_list_permutation(L1, L2):
         if not i in L1:
             return False
     
-    dist = {}
-    for i in L1:
-        
-        if not i in dist:
-            dist[i] = 1
-        else:
-            dist[i] += 1
+    dist = get_distribution(L1)
     
     max_count = 0
     max_key = None
