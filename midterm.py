@@ -51,16 +51,14 @@ def largest_odd_times(L):
         else:
             dist[n] += 1
             
-    max_count = 0
     max_key = None
     
     for key in dist:
         
         # if odd
         if not dist[key] % 2 == 0:
-            if dist[key] > max_count:
+            if max_key == None or key > max_key:
                 max_key = key
-                max_count = dist[key]
     
     return max_key
 
