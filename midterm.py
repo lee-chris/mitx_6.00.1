@@ -18,3 +18,20 @@ def is_triangular(k):
     
     return False
         
+
+def print_without_vowels(s):
+    '''
+    s: the string to convert
+    Finds a version of s without vowels and whose characters appear in the 
+    same order they appear in s. Prints this version of s.
+    Does not return anything
+    '''
+    
+    out = ""
+    vowels = "aeiou"
+    
+    for c in s:
+        if not c in vowels:
+            out += c
+    
+    print(out)
