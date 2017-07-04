@@ -62,3 +62,23 @@ def largest_odd_times(L):
     
     return max_key
 
+
+def dict_invert(d):
+    '''
+    d: dict
+    Returns an inverted dictionary according to the instructions above
+    '''
+    
+    inverse = {}
+    
+    for key in d:
+        
+        val = d[key]
+        
+        if not val in inverse:
+            inverse[val] = []
+        
+        if not key in inverse[val]:
+            inverse[val].append(key)
+    
+    return inverse
