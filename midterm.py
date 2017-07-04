@@ -139,4 +139,7 @@ def is_list_permutation(L1, L2):
             max_count = count
             max_key = key
 
-    return (key, max_count, type(key))
+    if max_key == None:
+        return (None, None, None)
+    
+    return (max_key, max_count, type(max_key))
