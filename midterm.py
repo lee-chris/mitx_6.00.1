@@ -35,3 +35,32 @@ def print_without_vowels(s):
             out += c
     
     print(out)
+
+
+def largest_odd_times(L):
+    """ Assumes L is a non-empty list of ints
+        Returns the largest element of L that occurs an odd number 
+        of times in L. If no such element exists, returns None """
+    
+    dist = {}
+    
+    for n in L:
+        
+        if not n in dist:
+            dist[n] = 1
+        else:
+            dist[n] += 1
+            
+    max_count = 0
+    max_key = None
+    
+    for key in dist:
+        
+        # if odd
+        if not dist[key] % 2 == 0:
+            if dist[key] > max_count:
+                max_key = key
+                max_count = dist[key]
+    
+    return max_key
+
