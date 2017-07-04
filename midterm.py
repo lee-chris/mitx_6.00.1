@@ -124,17 +124,20 @@ def is_list_permutation(L1, L2):
                 dist[i] += 1
         
         return dist
-        
-    for i in L1:
-        if not i in L2:
-            return False
-    
-    for i in L2:
-        if not i in L1:
-            return False
     
     dist = get_distribution(L1)
+    dist2 = get_distribution(L2)
     
+    for i in dist:
+        if not i in dist2:
+            return False
+        if not dist[i] == dist2[i]:
+            return False
+    
+    for i in dist2:
+        if not i in dist:
+            return False
+      
     max_count = 0
     max_key = None
     
