@@ -80,5 +80,6 @@ def dict_invert(d):
         
         if not key in inverse[val]:
             inverse[val].append(key)
+            inverse[val].sort()
     
     return inverse
