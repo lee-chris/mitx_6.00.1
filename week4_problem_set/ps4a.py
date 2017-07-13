@@ -156,7 +156,23 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    
+    # create copy of hand
+    result = {}
+    
+    for c in hand:
+        result[c] = hand[c]
+    
+    # remove letters from word
+    for c in word:
+        
+        if result[c] == 1:
+            del result[c]
+        
+        else:
+            result[c] -= 1
+        
+    return result
 
 
 
