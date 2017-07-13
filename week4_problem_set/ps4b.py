@@ -126,27 +126,33 @@ def playGame(wordList):
     """
     
     hand = None
+    cmd = ""
     
-    while(True):
-        
-        cmd = input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")
+    while not cmd == "e":
     
-        if cmd == "e":
-            break;
-        
-        elif cmd == "r":
-        
-            if hand == None:
-                print("You have not played a hand yet. Please play a new hand first!\n");
-        
-        elif cmd == "n":
+        while True:
             
-            hand = dealHand(HAND_SIZE)
+            cmd = input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")
         
-        else:
-            print("Invalid command.")
+            if cmd == "e":
+                break;
+            
+            elif cmd == "r":
+            
+                if hand == None:
+                    print("You have not played a hand yet. Please play a new hand first!\n");
+                else:
+                    break
+            
+            elif cmd == "n":
+                
+                hand = dealHand(HAND_SIZE)
+                break
+            
+            else:
+                print("Invalid command.")
         
-        while(True):
+        while not cmd == "e":
             
             user = input("Enter u to have yourself play, c to have the computer play: ")
             
