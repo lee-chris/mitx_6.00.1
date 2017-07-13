@@ -213,7 +213,13 @@ def calculateHandlen(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
+    
+    count = 0
+    
+    for c in hand:
+        count += hand[c]
+    
+    return count
 
 
 
