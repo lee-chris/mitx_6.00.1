@@ -276,6 +276,11 @@ class CiphertextMessage(Message):
                 best_shift = i
         
         return best_shift, Message.apply_shift(self, best_shift)
+
+
+def decrypt_story():
+    
+    return CiphertextMessage(get_story_string()).decrypt_message()
             
 
 #Example test case (PlaintextMessage)
